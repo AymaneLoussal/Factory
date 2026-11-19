@@ -52,10 +52,11 @@ export default function AdminLayout() {
 
       {/* Sidebar Navigation */}
       <aside
-        className="sidebar"
+        className={mobileMenuOpen ? 'sidebar open' : 'sidebar'}
         style={{
           transform: mobileMenuOpen ? 'translateX(0)' : undefined,
           display: mobileMenuOpen ? 'flex' : undefined,
+          zIndex: mobileMenuOpen ? 31 : undefined,
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 8px' }}>
@@ -143,9 +144,9 @@ export default function AdminLayout() {
             <button
               type="button"
               className="icon-button mobile-menu"
-              style={{ display: 'none' }}
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Ouvrir le menu"
+              aria-expanded={mobileMenuOpen}
             >
               <Icon name="menu" size={20} />
             </button>
